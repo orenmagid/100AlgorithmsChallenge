@@ -1,10 +1,11 @@
-function adjacentElementsProduct(inputArray: number[]): number {
-  let product = -Infinity;
-  inputArray.forEach((num, i) => {
-    let temp = num * inputArray[i + 1];
-    if (temp > product) product = temp;
+function allLongestStrings(inputArray: string[]): string[] {
+  let length = 0;
+  inputArray.forEach(string => {
+    if (string.length > length) length = string.length;
   });
-  return product;
+  return inputArray.filter(string => {
+    return string.length === length;
+  });
 }
 
-console.log(adjacentElementsProduct([3, 6, -2, -5, 7, 3]));
+console.log(allLongestStrings(["aba", "aa", "ad", "vcd", "aba"]));
