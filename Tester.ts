@@ -1,11 +1,13 @@
-function allLongestStrings(inputArray: string[]): string[] {
-  let length = 0;
-  inputArray.forEach(string => {
-    if (string.length > length) length = string.length;
-  });
-  return inputArray.filter(string => {
-    return string.length === length;
-  });
+function almostIncreasingSequence(sequence: number[]): boolean {
+  let counter = 0;
+
+  for (let i = 0; i < sequence.length - 1; i++) {
+    if (sequence[i] >= sequence[i + 1]) {
+      counter++;
+    }
+  }
+  return counter < 2;
 }
 
-console.log(allLongestStrings(["aba", "aa", "ad", "vcd", "aba"]));
+console.log(almostIncreasingSequence([1, 3, 2, 1]));
+console.log(almostIncreasingSequence([1, 3, 2]));
