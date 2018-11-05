@@ -1,9 +1,18 @@
-function alternatingSums(array: number[]): number[] {
-  let sumArray = [0, 0];
-  for (var i = 0; i < array.length; i++) {
-    i % 2 === 0 ? (sumArray[0] += array[i]) : (sumArray[1] += array[i]);
+function areEquallyStrong(
+  yourLeft: number,
+  yourRight: number,
+  friendsLeft: number,
+  friendsRight: number
+): boolean {
+  if (
+    (yourLeft === friendsLeft && yourRight === friendsRight) ||
+    (yourLeft === friendsRight && yourRight === friendsLeft)
+  ) {
+    return true;
   }
-  return sumArray;
+  return false;
 }
 
-console.log(alternatingSums([50, 60, 60, 45, 70]));
+console.log(areEquallyStrong(10, 15, 15, 10));
+console.log(areEquallyStrong(15, 10, 15, 10));
+console.log(areEquallyStrong(15, 10, 15, 9));
