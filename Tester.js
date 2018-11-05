@@ -1,13 +1,19 @@
-function alphabeticShift(string: string): string {
-  let result = "";
-  for (let i = 0; i < string.length; i++) {
-    if (string[i] === "z") {
-      result += "a";
+function alphabetSubsequence(s: string): boolean {
+  let s = s.toLowerCase();
+  for (var i = 0; i < s.length - 1; i++) {
+    if (s[i].charCodeAt(0) >= 97 && s[i].charCodeAt(0) <= 122) {
+      if (s[i].charCodeAt(0) >= s[i + 1].charCodeAt(0)) {
+        return false;
+      }
     } else {
-      result += String.fromCharCode(string[i].charCodeAt(0) + 1);
+      return false;
     }
   }
-  return result;
+  return true;
 }
 
-console.log(alphabeticShift("crazy"));
+console.log(alphabetSubsequence("zab"));
+console.log(alphabetSubsequence("effg"));
+console.log(alphabetSubsequence("cdce"));
+console.log(alphabetSubsequence("ace"));
+console.log(alphabetSubsequence("bxz"));
