@@ -1,19 +1,9 @@
-function alphabetSubsequence(s: string): boolean {
-  let s = s.toLowerCase();
-  for (var i = 0; i < s.length - 1; i++) {
-    if (s[i].charCodeAt(0) >= 97 && s[i].charCodeAt(0) <= 122) {
-      if (s[i].charCodeAt(0) >= s[i + 1].charCodeAt(0)) {
-        return false;
-      }
-    } else {
-      return false;
-    }
+function alternatingSums(array: number[]): number[] {
+  let sumArray = [0, 0];
+  for (var i = 0; i < array.length; i++) {
+    i % 2 === 0 ? (sumArray[0] += array[i]) : (sumArray[1] += array[i]);
   }
-  return true;
+  return sumArray;
 }
 
-console.log(alphabetSubsequence("zab"));
-console.log(alphabetSubsequence("effg"));
-console.log(alphabetSubsequence("cdce"));
-console.log(alphabetSubsequence("ace"));
-console.log(alphabetSubsequence("bxz"));
+console.log(alternatingSums([50, 60, 60, 45, 70]));
